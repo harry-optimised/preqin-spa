@@ -1,0 +1,28 @@
+repos:
+  - repo: local
+    hooks:
+      - id: lint-ui
+        name: Lint UI
+        entry: npm run lint
+        language: system
+        files: '\.(js|jsx|ts|tsx)$'
+        exclude: '^node_modules/'
+        always_run: true
+        pass_filenames: false
+        args: []
+        stages: [commit]
+        additional_dependencies: []
+        description: This hook lints the UI with ESLint.
+
+      - id: test-ui
+        name: Test UI
+        entry: npm run test -- --watchAll=false
+        language: system
+        files: '\.(js|jsx|ts|tsx)$'
+        exclude: '^node_modules/'
+        always_run: true
+        pass_filenames: false
+        args: []
+        stages: [commit]
+        additional_dependencies: []
+        description: This hook runs the tests for the UI with Jest.
