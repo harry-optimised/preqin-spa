@@ -1,20 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { Routes, Route, Link } from 'react-router-dom';
+
+import { useInvestors } from './hooks/useInvestors';
+
+import { Heading, Pane } from 'evergreen-ui';
+
+import InvestorTable from './components/InvestorTable';
+import { LinkComponentInterface } from './components/InvestorTable';
+
+function InvestorPage() {
+  const { investors } = useInvestors();
+
+  return (
+    <Pane padding={16}>
+      <Heading size={700}>Investors</Heading>
+      <InvestorTable investors={investors} LinkComponent={Link as LinkComponentInterface} />
+    </Pane>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<InvestorPage />} />
+    </Routes>
   );
 }
 

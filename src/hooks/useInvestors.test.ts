@@ -1,4 +1,4 @@
-import { Investor } from './useInvestors';
+import { Investor } from '../types';
 
 describe('useInvestors', () => {
   test('we can instantiate the required datastructure as an Investor type', () => {

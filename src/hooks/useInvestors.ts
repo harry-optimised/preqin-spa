@@ -1,18 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export type Investor = {
-  firm_id: number;
-  firm_name: string;
-  AUM: number;
-  date_added: string;
-  last_updated: string;
-  established_at: string;
-  firm_type: string;
-  city: string;
-  country: string;
-  address: string;
-  postal_code: string;
-};
+import { Investor } from '../types';
 
 // A simple in-memory cache
 let cache: Investor[] | null = null;
