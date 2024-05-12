@@ -1,4 +1,4 @@
-import { Investor } from '../types';
+import { Investor, Commitment } from '../types';
 
 describe('useInvestors', () => {
   test('we can instantiate the required datastructure as an Investor type', () => {
@@ -22,5 +22,22 @@ describe('useInvestors', () => {
 
     // Then - The instance should be created without error.
     expect(investorInstance).toBeDefined();
+  });
+
+  test('we can instantiate the required datastructure as a Commitment type', () => {
+    // Given - An example Commitment from the spec.
+    const commitment = {
+      id: 34728,
+      asset_class: 'pe',
+      firm_id: 2670,
+      currency: 'HKD',
+      amount: '6M'
+    };
+
+    // When - We create an instance of the Commitment type.
+    const commitmentInstance: Commitment = commitment;
+
+    // Then - The instance should be created without error.
+    expect(commitmentInstance).toBeDefined();
   });
 });

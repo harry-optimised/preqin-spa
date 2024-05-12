@@ -11,3 +11,11 @@ export type Investor = {
   address: string;
   postal_code: string;
 };
+
+export type Commitment = {
+  id: number;
+  asset_class: string;
+  firm_id: number;
+  currency: string;
+  amount: string;
+};

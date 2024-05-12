@@ -49,16 +49,20 @@ const investors = [
 
 describe('InvestorTable', () => {
   test('displays all provided investors correctly', () => {
+    // When - We render the InvestorTable component with the investors data.
     render(<InvestorTable investors={investors} LinkComponent={MockLink} />);
 
+    // Then - The investors' details should be displayed.
     expect(screen.getByText('Global Investments Ltd')).toBeInTheDocument();
     expect(screen.getByText('Equity Partners')).toBeInTheDocument();
     expect(screen.getByText('Tech Ventures')).toBeInTheDocument();
   });
 
   test('does not display non-expected fields', () => {
+    // When - We render the InvestorTable component with the investors data.
     render(<InvestorTable investors={investors} LinkComponent={MockLink} />);
 
+    // Then - The investors' details should not be displayed.
     investors.forEach((investor) => {
       expect(screen.queryByText(investor.AUM.toString())).not.toBeInTheDocument();
       expect(screen.queryByText(investor.city)).not.toBeInTheDocument();
